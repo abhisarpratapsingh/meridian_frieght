@@ -1,5 +1,35 @@
 # Meridian Freight — Breakdown-to-Resolution
 
+**An unattended automation that takes a truck breakdown from "someone
+scrambles across five systems for forty minutes" to a resolved, audited,
+client-notified work order in seconds — with a human approving only the
+one step that can't be undone.**
+
+Built for a fictional 400-truck freight operator whose operational
+knowledge lives in a spreadsheet, a retiring dispatcher's head, and 40
+email threads that occasionally contradict the spreadsheet. This system
+reads all of it, resolves the same truck's plate number spelled five
+different ways into one record, encodes the dispatcher's 14 years of
+tribal knowledge as rules the pipeline actually cites, and processes a
+breakdown queue end to end — deterministically, idempotently, and with
+every raw personal data field masked before it's ever stored.
+
+## What it does
+
+| | |
+|---|---|
+| 🧩 **Entity resolution** | Merges every messy spelling of a vehicle plate, client name, and record source into one canonical, cited record — with a documented precedence rule for every conflict, never a silent guess. |
+| 🔒 **PII masked at the boundary, not the exit** | Phone/Aadhaar/DL numbers are redacted or hashed *at ingestion* — structurally impossible to leak downstream, backed by an independent scanner that re-checks every shipped file before a run counts as done. |
+| ⚙️ **Deterministic 7-step pipeline** | Validate → enrich → classify → select a vehicle → work order → drafted client message → audit. No LLM in the decision path — reruns are byte-identical, on purpose. |
+| 🔁 **Idempotent & rerun-safe** | Duplicate tickets processed exactly once, even across a full pipeline rerun or a differently-formatted "surprise" file arriving later. |
+| 🧠 **14 dispatcher rules, encoded and cited** | Winter emissions restrictions, hill-route brake holds, per-client SLA overrides, a rotation rule for one difficult client — each one a citation back to the transcript or an email, not a hardcoded guess. |
+| 🖥️ **A real live console, not a static report** | Approve client messages, manually resolve a blocked or quarantined ticket (top vehicle matches suggested automatically), drag in a new ticket file, ask the system a grounded question — all from the browser, all reflected immediately. |
+| 👀 **Full observability** | Every decision replayable in under a minute — a plain-English story for non-technical review, the raw source record and full rule-citation trail underneath for technical review. |
+| 📦 **One command, zero cloud dependency** | `pip install -r requirements.txt && python -m app.cli serve`. No accounts, no API keys required, runs fully offline. |
+
+See [EVIDENCE.md](EVIDENCE.md) for the full build log — every non-obvious
+decision, every bug found and how it was fixed, mapped to why it matters.
+
 ## The live console (recommended for a demo)
 
 ```bash

@@ -522,6 +522,73 @@ clean throughout every action, not just at the end.
   Fictional per the challenge, but worth a deliberate choice (private repo, or accept it) rather than a
   default.
 
+### Re-grounded against CANDIDATE_README.md, verified line by line
+Re-read the actual deliverables spec and checked live output against it: `work_orders.jsonl` schema
+matches `{work_order_id, ticket_id, vehicle_reg, created_at, citations}` exactly (verified via `head -1`),
+`comms_sent.jsonl`/`comms_pending.jsonl`/`quarantine.jsonl`/`audit.jsonl` all present and correctly
+shaped, all three headline rules (dedup-once, rerun-identical, surprise-file-live) tested and passing,
+one-command deploy confirmed. Conclusion: the core deliverable was never actually lost during the design/
+feature iterations -- documented as a checklist so this doesn't need re-litigating again.
+
+### Auto-suggested vehicle picker (blocked/quarantined resolution)
+`renderCandidatePicker` now shows the top 3 candidates (backend already ranks eligible-first, then
+sourcing-correct, then registration) in a "Suggested — best match first" section above the full
+100-vehicle list, with #1 pre-selected and tagged. Confirming with zero additional clicks assigns the
+top-ranked truck. Verified end-to-end: opened the picker for TKT-0007, submitted with only a typed
+reason (no vehicle click), confirmed server-side the pre-selected `DL11SJ8690` was actually the one
+assigned (`vehicle_reservations.reg_canonical`), ticket moved BLOCKED -> COMMS_PENDING.
+
+### Design: liquid glass + skeuomorphism fusion
+Per explicit reference and follow-up feedback: outer floating card shells (sidebar, panels, hero card,
+stat tiles, drawer modals) now use translucent `backdrop-filter: blur()` glass panels over two fixed,
+soft color-glow pools behind the page content -- the "liquid" half. Buttons got the skeuomorphic half:
+top-to-bottom gradient fills, an inset top highlight, and a real pressed-state (inset shadow, not just a
+color change) on `:active`. Deliberately kept nested, text-dense content (drawer body, rule cards,
+candidate cards, table cells) fully opaque -- stacking translucency on translucency would have muddied
+contrast exactly where legibility matters most, which would have undercut "premium" rather than served it.
+
+### GitHub push, done properly this time
+First push attempt was rejected (remote had a pre-existing auto-generated `README.md` stub from repo
+creation, not actually empty). Diagnosed by fetching and inspecting before acting rather than guessing;
+confirmed the stub had no real content (`# meridian_frieght`, one line); merged with `-X ours` to keep our
+full README, then pushed successfully to `github.com/abhisarpratapsingh/meridian_frieght`. Every remote-
+touching git command required explicit user-visible approval through the permission system -- none were
+silently routed around.
+
+### The critical process failure: built and tested the redesign, never shipped it
+User reported "no design change seen" after the glass/skeuomorphism/auto-suggest round. Verified by
+diffing the pushed commit's `docs/index.html` against the current working file: the pushed version had
+1 `backdrop-filter` occurrence (leftover from before), the working file had 9 (the actual redesign).
+**The design work was real and tested locally, but never committed or pushed** -- the user was correctly
+looking at stale content. Root cause: no step in the workflow forced "regenerate -> commit -> push"
+together; each design round ended at "tests pass locally" without closing the loop to the actual remote
+the user was checking. Fixed process going forward: every design/functional round now ends with
+regenerate -> full test suite -> commit -> push in one sequence, not left as a follow-up.
+
+### Repo cleanup: the hackathon's own instructional materials, untracked
+`CANDIDATE_README.md`, the challenge PDF, and the challenge deck were tracked in git -- fine for local
+reference, wrong for a repo meant to read as a standalone product rather than "here is the assignment I
+was given." Untracked (`git rm --cached`) and added to `.gitignore`; kept on disk locally since the
+candidate still needs them. `README.md` rewritten to lead with a one-paragraph pitch and a features table
+instead of diving straight into CLI commands -- the previous version was accurate but read as internal
+engineering notes, not a front door.
+
+### Design: took "childish" seriously as a specific, fixable claim, not just "try again"
+Traced it to concrete, nameable causes rather than reshuffling colors again:
+1. **Hand-drawn SVG nav icons.** Illustrative icons approximated from memory (a house, a truck, a
+   question mark) are easy to get subtly wrong, and subtly-wrong icons read as amateurish faster than
+   almost anything else in a UI. Removed entirely -- replaced with a minimal dot marker + a thin left
+   accent bar on the active item, no icon glyphs at all. Restraint over decoration.
+2. **Over-rounded corners.** `--radius-lg` was 22px -- closer to a consumer/proptech app (like the
+   reference image, which is itself a consumer-facing product) than a serious B2B ops tool. Cut to 13px
+   (`--radius-md` 14->9, `--radius-sm` 8->6) across the board.
+3. **Oversized, overweight hero numbers.** 800-weight display type at 36-38px reads as loud/toylike at
+   that combination. Dropped to 700 weight, 22-30px depending on context -- confident, not shouting.
+4. **Filled bright-orange active nav state.** Replaced a solid accent-tinted background with a thin
+   left border + bold text -- the same information (this is where you are), far less visual noise.
+5. **A star glyph ("★ top pick")** on the auto-suggested vehicle -- replaced with plain text.
+Re-verified visually after each change via real screenshots, not assumed from the CSS alone.
+
 ### Not yet built (honest cut list, update as the day progresses)
 - No dashboard yet — `explain <ticket_id>` CLI covers the "reconstruct in under a minute" requirement
   for now; a thin HTML view over the same SQLite data is the next thing to add if time allows.

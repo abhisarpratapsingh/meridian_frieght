@@ -225,7 +225,7 @@ TEMPLATE = """<!doctype html>
   --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --series-4: #eda100; --series-5: #e87ba4;
   --seq-100: #cde2fb; --seq-250: #86b6ef; --seq-400: #3987e5; --seq-550: #1c5cab; --seq-700: #0d366b;
   --good: #0ca30c; --warning: #d78700; --serious: #c25e39; --critical: #c23434;
-  --radius-sm: 8px; --radius-md: 14px; --radius-lg: 22px;
+  --radius-sm: 6px; --radius-md: 9px; --radius-lg: 13px;
   --shadow-sm: 0 1px 2px rgba(23,23,26,0.04);
   --shadow-md: 0 10px 28px rgba(23,23,26,0.08), 0 2px 6px rgba(23,23,26,0.04);
   --shadow-lg: 0 28px 70px rgba(23,23,26,0.16), 0 8px 18px rgba(23,23,26,0.06);
@@ -241,6 +241,16 @@ TEMPLATE = """<!doctype html>
   --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Segoe UI Variable', system-ui, sans-serif;
   --font-mono: 'Cascadia Code', 'Cascadia Mono', Consolas, 'SF Mono', ui-monospace, monospace;
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 20px; --sp-6: 24px; --sp-7: 32px; --sp-8: 40px;
+  /* Liquid glass: translucent, blurred panels that float over a lit
+     background -- used only on the OUTER card shells (sidebar, panels, the
+     drawer) so the effect actually reads as depth. Nested content inside
+     those shells (table cells, rule cards, candidate cards) stays fully
+     opaque on purpose -- stacking translucency on translucency muddies
+     contrast and hurts legibility, which would undercut the "premium" goal
+     rather than serve it. */
+  --glass-bg: rgba(255,255,255,0.62); --glass-border: rgba(255,255,255,0.5);
+  --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.7);
+  --glow-1: rgba(255,106,68,0.16); --glow-2: rgba(42,120,214,0.10);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -254,6 +264,9 @@ TEMPLATE = """<!doctype html>
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
     --shadow-md: 0 12px 32px rgba(0,0,0,0.38), 0 3px 8px rgba(0,0,0,0.28);
     --shadow-lg: 0 30px 80px rgba(0,0,0,0.55), 0 10px 22px rgba(0,0,0,0.32);
+    --glass-bg: rgba(38,39,45,0.58); --glass-border: rgba(255,255,255,0.09);
+    --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.06);
+    --glow-1: rgba(255,122,84,0.20); --glow-2: rgba(74,146,234,0.14);
   }
 }
 :root[data-theme="dark"] {
@@ -267,6 +280,9 @@ TEMPLATE = """<!doctype html>
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
   --shadow-md: 0 12px 32px rgba(0,0,0,0.38), 0 3px 8px rgba(0,0,0,0.28);
   --shadow-lg: 0 30px 80px rgba(0,0,0,0.55), 0 10px 22px rgba(0,0,0,0.32);
+  --glass-bg: rgba(38,39,45,0.58); --glass-border: rgba(255,255,255,0.09);
+  --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.06);
+  --glow-1: rgba(255,122,84,0.20); --glow-2: rgba(74,146,234,0.14);
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; }
@@ -275,7 +291,19 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   animation: page-in .4s var(--ease);
+  position: relative;
 }
+/* The "liquid" half of liquid glass: two soft, fixed color pools behind
+   everything, so the translucent/blurred panels above have something to
+   actually refract. Fixed positioning means they don't move or cost repaint
+   on scroll -- this is decoration, not a scroll-driven effect. */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(680px 480px at 8% -8%, var(--glow-1), transparent 60%),
+    radial-gradient(620px 520px at 108% 18%, var(--glow-2), transparent 55%);
+}
+.shell { position: relative; z-index: 1; }
 .mono, code, pre { font-family: var(--font-mono) !important; }
 body.drawer-open { overflow: hidden; }
 html.drawer-open { overflow: hidden; height: 100%; }
@@ -286,7 +314,9 @@ html.drawer-open { overflow: hidden; height: 100%; }
 /* ---------- shell ---------- */
 .shell { display: flex; min-height: 100vh; }
 .sidebar {
-  width: 244px; flex-shrink: 0; background: var(--surface-1); border-right: 1px solid var(--border);
+  width: 244px; flex-shrink: 0; background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-right: 1px solid var(--glass-border);
   display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh;
 }
 .sidebar-brand { padding: 22px 20px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
@@ -294,21 +324,23 @@ html.drawer-open { overflow: hidden; height: 100%; }
   width: 30px; height: 30px; border-radius: var(--radius-sm); flex-shrink: 0;
   background: var(--accent); box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.12);
   display: flex; align-items: center; justify-content: center; color: var(--accent-ink);
-  font-family: var(--font-display); font-weight: 800; font-size: 15px;
+  font-family: var(--font-display); font-weight: 700; font-size: 13px;
 }
-.sidebar-brand h1 { font-family: var(--font-display); font-size: 16.5px; font-weight: 800; margin: 0 0 1px; letter-spacing: -0.01em; }
+.sidebar-brand h1 { font-family: var(--font-display); font-size: 14.5px; font-weight: 700; margin: 0 0 1px; letter-spacing: -0.005em; }
 .sidebar-brand .sub { font-size: 11px; color: var(--text-secondary); }
 .sidebar-nav { padding: 14px 12px; flex: 1; overflow-y: auto; }
 .nav-group-label { font-size: 10px; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); font-weight: 700; padding: 10px 10px 6px; }
 .nav-item {
   display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left;
-  background: none; border: none; border-radius: var(--radius-sm); padding: 10px 11px; margin-bottom: 2px;
-  font-size: 13.5px; font-weight: 600; color: var(--text-secondary); cursor: pointer;
+  background: none; border: none; border-left: 2px solid transparent; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 9px 11px 9px 9px; margin-bottom: 1px;
+  font-size: 13.5px; font-weight: 500; color: var(--text-secondary); cursor: pointer;
   font-family: inherit; transition: all .15s var(--ease);
 }
 .nav-item:hover { background: var(--surface-2); color: var(--text-primary); }
-.nav-item.active { background: var(--accent-soft); color: var(--accent); }
-.nav-icon { display: inline-flex; width: 16px; height: 16px; margin-right: 9px; flex-shrink: 0; opacity: .85; }
+.nav-item.active { background: transparent; color: var(--text-primary); font-weight: 700; border-left-color: var(--accent); }
+.nav-item.active .nav-marker { background: var(--accent); }
+.nav-marker { display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin-right: 11px; flex-shrink: 0; background: var(--baseline); transition: background .15s var(--ease); }
 .nav-item-label { display: flex; align-items: center; flex: 1; }
 .nav-badge {
   font-size: 10.5px; font-weight: 800; padding: 1px 7px; border-radius: 999px;
@@ -326,7 +358,7 @@ button.theme-toggle:hover { color: var(--text-primary); border-color: var(--base
 .content { flex: 1; min-width: 0; padding: 30px 36px 90px; max-width: 1180px; }
 .view { display: none; }
 .view.active { display: block; animation: rise-in .35s var(--ease); }
-.view-title { font-family: var(--font-display); font-size: 26px; font-weight: 800; margin: 0 0 6px; letter-spacing: -0.02em; }
+.view-title { font-family: var(--font-display); font-size: 21px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.015em; }
 .view-sub { font-size: 13.5px; color: var(--text-secondary); margin: 0 0 24px; line-height: 1.5; }
 
 .badge {
@@ -340,7 +372,11 @@ button.theme-toggle:hover { color: var(--text-primary); border-color: var(--base
 
 /* ---------- needs-attention ---------- */
 .attention-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
-.attention-panel { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow-md); }
+.attention-panel {
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 18px;
+  backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: var(--glass-highlight), var(--shadow-md);
+}
 .attention-panel h3 { font-size: 13px; margin: 0 0 4px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 .attention-panel .n { font-size: 20px; font-weight: 800; }
 .attention-panel .why { font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4; }
@@ -363,35 +399,40 @@ button.theme-toggle:hover { color: var(--text-primary); border-color: var(--base
 .home-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; margin-bottom: 22px; }
 @media (max-width: 980px) { .home-hero { grid-template-columns: 1fr; } }
 .hero-card {
-  background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-lg);
-  padding: 24px; box-shadow: var(--shadow-md); position: relative; overflow: hidden;
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+  padding: 24px; box-shadow: var(--glass-highlight), var(--shadow-md); position: relative; overflow: hidden;
 }
 .ring-wrap { display: flex; align-items: center; gap: 22px; }
 .ring-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
-.ring-value { font-family: var(--font-display); font-size: 36px; font-weight: 800; letter-spacing: -0.02em; }
+.ring-value { font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: -0.015em; }
 .ring-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
 .legend-row { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
 .legend-chip { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
 .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 
 .next-action {
-  background: var(--surface-1);
-  border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-sm);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid var(--glass-border); border-left: 3px solid var(--accent); border-radius: var(--radius-lg); padding: 22px;
+  box-shadow: var(--glass-highlight), var(--shadow-md);
   display: flex; flex-direction: column; justify-content: space-between;
 }
 .next-action .nx-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
-.next-action .nx-title { font-family: var(--font-display); font-size: 18px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.01em; }
+.next-action .nx-title { font-family: var(--font-display); font-size: 15.5px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.005em; }
 .next-action .nx-reason { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
 .next-action .nx-empty { font-size: 13px; color: var(--text-secondary); }
 
 .stat-strip, .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 22px; }
 .stat-tile {
-  background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-md);
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+  backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: var(--glass-highlight);
   padding: 15px 16px; transition: transform .15s var(--ease), box-shadow .15s var(--ease); cursor: pointer;
 }
-.stat-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.stat-tile:hover { transform: translateY(-3px); box-shadow: var(--glass-highlight), var(--shadow-md); }
 .stat-tile .label { font-size: 10.5px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; font-weight: 700; }
-.stat-tile .value { font-family: var(--font-display); font-size: 26px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat-tile .value { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.015em; font-variant-numeric: tabular-nums; }
 .stat-tile .value.accent-good { color: var(--good); }
 .stat-tile .value.accent-warn { color: var(--warning); }
 .stat-tile .value.accent-crit { color: var(--critical); }
@@ -410,7 +451,11 @@ button.theme-toggle:hover { color: var(--text-primary); border-color: var(--base
 /* ---------- panels & cards ---------- */
 .grid-2 { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; }
 @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
-.panel { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-md); }
+.panel {
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 22px;
+  backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: var(--glass-highlight), var(--shadow-md);
+}
 .panel h2 { font-size: 12.5px; margin: 0 0 16px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-secondary); font-weight: 700; }
 
 .funnel-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
@@ -461,7 +506,7 @@ tbody tr.ticket-row:hover { background: var(--surface-2); }
 
 /* ---------- drawer ---------- */
 .drawer-backdrop {
-  position: fixed; inset: 0; background: rgba(10,10,8,0.5); backdrop-filter: blur(2px); z-index: 40; opacity: 0; pointer-events: none;
+  position: fixed; inset: 0; background: rgba(10,10,8,0.42); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 40; opacity: 0; pointer-events: none;
   transition: opacity .2s var(--ease);
 }
 .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
@@ -550,21 +595,45 @@ details.tech > summary:hover { color: var(--text-primary); }
 }
 .static-banner code { background: rgba(0,0,0,0.12); padding: 1px 6px; border-radius: 4px; font-family: var(--font-mono); }
 
+/* Skeuomorphic half of the fusion: real buttons get a light source (gradient
+   top-to-bottom), a bright top-edge highlight, and a shadow that reads as
+   "resting above the surface" -- pressing one flattens the gradient and
+   swaps to an inset shadow, like an actual button depressing, not just a
+   color change. This is the tactile counterpart to the glass panels above. */
 .btn {
   font-size: 12.5px; font-weight: 700; border: none; border-radius: var(--radius-sm); padding: 9px 17px;
-  cursor: pointer; font-family: inherit; transition: all .15s var(--ease); display: inline-flex; align-items: center; gap: 6px;
+  cursor: pointer; font-family: inherit; transition: all .12s var(--ease); display: inline-flex; align-items: center; gap: 6px;
+  position: relative;
 }
-.btn:active:not(:disabled) { transform: scale(.97); }
+.btn:active:not(:disabled) { transform: translateY(1px) scale(.98); }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
-.btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: var(--shadow-sm); }
-.btn-primary:hover:not(:disabled) { filter: brightness(1.08); box-shadow: var(--shadow-md); }
-.btn-ghost { background: var(--surface-2); color: var(--text-secondary); border: 1px solid var(--border); }
+.btn-primary {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 88%, white), var(--accent));
+  color: var(--accent-ink);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -2px 4px rgba(0,0,0,0.12), var(--shadow-sm);
+}
+.btn-primary:hover:not(:disabled) { filter: brightness(1.05); box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -2px 4px rgba(0,0,0,0.1), var(--shadow-md); }
+.btn-primary:active:not(:disabled) { box-shadow: inset 0 2px 5px rgba(0,0,0,0.22); filter: brightness(.97); }
+.btn-ghost {
+  background: linear-gradient(180deg, var(--surface-2), color-mix(in oklab, var(--surface-2) 90%, black));
+  color: var(--text-secondary); border: 1px solid var(--border);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), var(--shadow-sm);
+}
 .btn-ghost:hover:not(:disabled) { color: var(--text-primary); border-color: var(--baseline); }
+.btn-ghost:active:not(:disabled) { box-shadow: inset 0 2px 4px rgba(0,0,0,0.15); }
 .btn-sm { font-size: 11.5px; padding: 7px 12px; }
-.btn-good { background: var(--good); color: white; box-shadow: var(--shadow-sm); }
-.btn-good:hover:not(:disabled) { filter: brightness(1.08); }
-.btn-warn { background: var(--warning); color: white; box-shadow: var(--shadow-sm); }
-.btn-warn:hover:not(:disabled) { filter: brightness(1.08); }
+.btn-good {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--good) 85%, white), var(--good)); color: white;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.12), var(--shadow-sm);
+}
+.btn-good:hover:not(:disabled) { filter: brightness(1.06); }
+.btn-good:active:not(:disabled) { box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); filter: brightness(.97); }
+.btn-warn {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--warning) 85%, white), var(--warning)); color: white;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.12), var(--shadow-sm);
+}
+.btn-warn:hover:not(:disabled) { filter: brightness(1.06); }
+.btn-warn:active:not(:disabled) { box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); filter: brightness(.97); }
 .btn-block { width: 100%; justify-content: center; }
 
 .view-actions { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
@@ -585,7 +654,9 @@ details.tech > summary:hover { color: var(--text-primary); }
 .ask-chip { font-size: 11.5px; padding: 6px 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-secondary); cursor: pointer; transition: all .15s ease; }
 .ask-chip:hover { color: var(--text-primary); border-color: var(--baseline); }
 .ask-answer {
-  background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 22px; margin-bottom: 16px;
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 20px 22px; margin-bottom: 16px;
+  backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: var(--glass-highlight), var(--shadow-sm);
 }
 .ask-answer .a-text { font-size: 14.5px; line-height: 1.65; margin-bottom: 10px; }
 .ask-answer .a-meta { font-size: 11px; color: var(--text-muted); display: flex; gap: 10px; margin-bottom: 8px; }
@@ -612,8 +683,9 @@ details.tech > summary:hover { color: var(--text-primary); }
 }
 .confirm-backdrop.open { opacity: 1; pointer-events: auto; }
 .confirm-box {
-  background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px;
-  width: min(420px, 90vw); box-shadow: var(--shadow-lg); transform: scale(.96); transition: transform .15s var(--ease);
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 26px;
+  backdrop-filter: blur(28px) saturate(160%); -webkit-backdrop-filter: blur(28px) saturate(160%);
+  width: min(420px, 90vw); box-shadow: var(--glass-highlight), var(--shadow-lg); transform: scale(.96); transition: transform .15s var(--ease);
   max-height: 82vh; overflow-y: auto;
 }
 .confirm-backdrop.open .confirm-box { transform: scale(1); }
@@ -628,20 +700,25 @@ details.tech > summary:hover { color: var(--text-primary); }
 .confirm-box textarea { resize: vertical; min-height: 60px; }
 .confirm-form { margin: 4px 0; }
 
-.candidate-list { display: grid; gap: 8px; max-height: 320px; overflow-y: auto; margin-top: 6px; }
+.candidate-list { display: block; margin-top: 6px; }
 .candidate-card {
   border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; cursor: pointer;
   transition: all .12s ease; background: var(--surface-2);
 }
-.candidate-card:hover { border-color: var(--series-1); }
-.candidate-card.selected { border-color: var(--series-1); background: color-mix(in oklab, var(--series-1) 10%, var(--surface-2)); }
+.candidate-card:hover { border-color: var(--accent); }
+.candidate-card.selected { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 1px var(--accent); }
+.candidate-card.recommended { border-color: color-mix(in oklab, var(--accent) 50%, var(--border)); }
 .candidate-card .cc-top { display: flex; justify-content: space-between; align-items: center; }
-.candidate-card .cc-reg { font-family: ui-monospace, monospace; font-weight: 700; font-size: 13px; }
+.candidate-card .cc-reg { font-family: var(--font-mono); font-weight: 700; font-size: 13px; }
 .candidate-card .cc-tag { font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; }
 .candidate-card .cc-tag.ok { background: color-mix(in oklab, var(--good) 18%, transparent); color: var(--good); }
 .candidate-card .cc-tag.warn { background: color-mix(in oklab, var(--warning) 18%, transparent); color: var(--warning); }
+.candidate-card .cc-tag.best { background: var(--accent-soft); color: var(--accent); }
 .candidate-card .cc-meta { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
 .candidate-card .cc-blockers { font-size: 11px; color: var(--serious); margin-top: 4px; line-height: 1.4; }
+.suggest-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); font-weight: 700; margin-bottom: 8px; }
+.candidate-suggest-grid { display: grid; gap: 8px; margin-bottom: 4px; }
+.candidate-list-full { display: grid; gap: 8px; max-height: 220px; overflow-y: auto; }
 
 footer.credits { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-muted); }
 </style>
@@ -852,11 +929,6 @@ function svg(tag, props) {
   Object.entries(props || {}).forEach(([k, v]) => e.setAttribute(k, v));
   return e;
 }
-function buildNavIcon(pathD) {
-  const s = svg('svg', {viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', class: 'nav-icon'});
-  s.appendChild(svg('path', {d: pathD}));
-  return s;
-}
 
 // ---------- confirmation modal ----------
 function confirmModal(message, { title, formBuilder } = {}) {
@@ -994,16 +1066,6 @@ async function pollStatus() {
 }
 
 // ---------- sidebar navigation ----------
-const NAV_ICONS = {
-  home: 'M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10',
-  attention: 'M12 9v4m0 4h.01M10.3 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L14.7 3.86a2 2 0 00-3.4 0z',
-  overview: 'M3 3v18h18M8 17V9m5 8V5m5 12v-6',
-  tickets: 'M4 6h16M4 12h16M4 18h7',
-  fleet: 'M3 17h1m0 0a2 2 0 104 0m-4 0h9m5 0h1a1 1 0 001-1v-3.28a1 1 0 00-.29-.7L20 8h-3m0 0V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m9-9h3l3.71 3.71M13 17h4m0 0a2 2 0 104 0',
-  ask: 'M12 18h.01M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 22a10 10 0 100-20 10 10 0 000 20z',
-  ingest: 'M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2',
-  rules: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
-};
 const NAV_SPECS = [
   ['home', 'Home', 'home', null],
   ['attention', 'Needs attention', 'attention', () => DATA.needs_attention.quarantined.length + DATA.needs_attention.blocked.length],
@@ -1018,7 +1080,10 @@ const sidebarNav = document.getElementById('sidebarNav');
 const navButtons = {};
 NAV_SPECS.forEach(([id, label, icon, countFn]) => {
   const btn = el('button', {class: 'nav-item', 'data-view': id});
-  const labelWrap = el('span', {class: 'nav-item-label'}, [buildNavIcon(NAV_ICONS[icon]), text(label)]);
+  // No illustrative icons -- a restrained marker + precise typography reads
+  // as considered; hand-drawn icon glyphs are easy to get subtly wrong and
+  // that reads as amateurish faster than almost anything else in a UI.
+  const labelWrap = el('span', {class: 'nav-item-label'}, [el('span', {class: 'nav-marker'}, []), text(label)]);
   btn.appendChild(labelWrap);
   if (countFn) {
     const n = countFn();
@@ -1157,28 +1222,65 @@ function statePill(state) {
   return pill;
 }
 
+function buildCandidateCard(c, container, onSelect, recommended) {
+  const card = el('div', {class: 'candidate-card' + (recommended ? ' recommended' : '')});
+  const top = el('div', {class: 'cc-top'});
+  top.appendChild(el('span', {class: 'cc-reg'}, [text(c.reg)]));
+  const tagWrap = el('span', {style: 'display:flex; gap:5px;'});
+  if (recommended) tagWrap.appendChild(el('span', {class: 'cc-tag best'}, [text('Top pick')]));
+  tagWrap.appendChild(el('span', {class: 'cc-tag ' + (c.eligible ? 'ok' : 'warn')}, [text(c.eligible ? 'eligible' : 'override needed')]));
+  top.appendChild(tagWrap);
+  card.appendChild(top);
+  card.appendChild(el('div', {class: 'cc-meta'}, [text(`${c.model} (${c.year}) · ${c.bs_stage} · home hub ${c.home_hub}`)]));
+  const issues = [...(c.blockers || [])];
+  if (c.sourcing_note) issues.push(c.sourcing_note);
+  if (issues.length) card.appendChild(el('div', {class: 'cc-blockers'}, [text(issues.join(' · '))]));
+  card.addEventListener('click', () => {
+    container.querySelectorAll('.candidate-card').forEach(x => x.classList.remove('selected'));
+    card.classList.add('selected');
+    onSelect(c.reg);
+  });
+  return card;
+}
+
 async function renderCandidatePicker(container, ticketId, onSelect) {
   container.textContent = 'Loading candidates…';
   const result = await apiCall('/api/candidates/' + encodeURIComponent(ticketId));
   clear(container);
   if (!result.ok) { container.appendChild(el('div', {style: 'color:var(--critical); font-size:12px;'}, [text(result.error || 'Could not load candidates.')])); return; }
-  result.candidates.forEach(c => {
-    const card = el('div', {class: 'candidate-card'});
-    const top = el('div', {class: 'cc-top'});
-    top.appendChild(el('span', {class: 'cc-reg'}, [text(c.reg)]));
-    top.appendChild(el('span', {class: 'cc-tag ' + (c.eligible ? 'ok' : 'warn')}, [text(c.eligible ? 'eligible' : 'override needed')]));
-    card.appendChild(top);
-    card.appendChild(el('div', {class: 'cc-meta'}, [text(`${c.model} (${c.year}) · ${c.bs_stage} · home hub ${c.home_hub}`)]));
-    const issues = [...(c.blockers || [])];
-    if (c.sourcing_note) issues.push(c.sourcing_note);
-    if (issues.length) card.appendChild(el('div', {class: 'cc-blockers'}, [text(issues.join(' · '))]));
-    card.addEventListener('click', () => {
-      container.querySelectorAll('.candidate-card').forEach(x => x.classList.remove('selected'));
-      card.classList.add('selected');
-      onSelect(c.reg);
-    });
-    container.appendChild(card);
-  });
+  const candidates = result.candidates;
+
+  // Top suggestions, front and center, so no time is spent hunting through
+  // 100 vehicles for the obvious answer -- the backend already ranks
+  // eligible-first, then sourcing-correct, then registration; take the top
+  // 3 and put them above the fold. The #1 pick is pre-selected immediately,
+  // so confirming with zero clicks still assigns the best available truck --
+  // an operator only needs to act if they want to override it.
+  const top3 = candidates.slice(0, 3);
+  if (top3.length) {
+    const suggestLabel = el('div', {class: 'suggest-label'}, [text('Suggested — best match first')]);
+    container.appendChild(suggestLabel);
+    const suggestGrid = el('div', {class: 'candidate-suggest-grid'});
+    top3.forEach((c, i) => suggestGrid.appendChild(buildCandidateCard(c, container, onSelect, i === 0)));
+    container.appendChild(suggestGrid);
+    onSelect(top3[0].reg);
+  }
+
+  if (candidates.length > 3) {
+    const moreLabel = el('div', {class: 'suggest-label', style: 'margin-top:14px;'}, [text(`All ${candidates.length} vehicles`)]);
+    container.appendChild(moreLabel);
+  }
+  const fullList = el('div', {class: 'candidate-list-full'});
+  candidates.forEach(c => fullList.appendChild(buildCandidateCard(c, container, onSelect, false)));
+  container.appendChild(fullList);
+
+  // The pre-selected top pick needs its card visibly marked selected too,
+  // not just held in the onSelect callback -- otherwise confirming with zero
+  // clicks assigns the right vehicle but the UI never showed which one.
+  if (top3.length) {
+    const firstCard = container.querySelector('.candidate-suggest-grid .candidate-card');
+    if (firstCard) firstCard.classList.add('selected');
+  }
 }
 
 function buildDrawerBody(t) {

@@ -25,3 +25,10 @@ Thumbs.db
 *.tmp.html
 *.tmp.csv
 _new_template.html.txt
+
+# The hackathon's own instructional/grading materials -- kept locally (the
+# candidate needs them), not published in what should read as a standalone
+# product repo, not "here is the assignment I was given."
+CANDIDATE_README.md
+Synq_AI_FDE_Challenge_Deck.pptx
+Synq_AI_Forward_Deployment_Challenge.pdf
