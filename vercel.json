@@ -1,0 +1,8 @@
+{
+  "outputDirectory": "outputs",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/dashboard.html" }
+  ]
+}

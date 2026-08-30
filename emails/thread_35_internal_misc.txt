@@ -1,0 +1,19 @@
+From: hub.jaipur@meridianfreight.example.in
+To: dispatch@meridianfreight.example.in
+Date: Sun, 12 Jul 2026 15:25 +0530
+Subject: New tarpaulin stock
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: dispatch@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Sun, 12 Jul 2026 21:25 +0530
+Subject: RE: New tarpaulin stock
+
+Proceed as per last quarter's process.
+
+Rajender Pal Yadav

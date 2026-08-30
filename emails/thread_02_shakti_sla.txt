@@ -1,0 +1,22 @@
+From: dispatch@shakticement.example.in
+To: ops@meridianfreight.example.in
+Date: Wed, 17 Jun 2026 14:41 +0530
+Subject: Delivery window, this week's dispatches
+
+Sandeep,
+
+Reminder before the Kanpur loads go out: as agreed with your MD, our working window is 36 hours door to door. Please plan accordingly. The 48 hour line in the contract is legacy language, our plant scheduling runs on 36.
+
+Regards,
+Prakash Nair
+Shakti Cement
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: dispatch@shakticement.example.in
+Date: Wed, 17 Jun 2026 17:41 +0530
+Subject: RE: Delivery window, this week's dispatches
+
+Noted Prakash ji, all Shakti dispatches are planned to 36 hours internally. Contract stays as is on paper.
+
+Sandeep Malhotra
+Meridian Freight

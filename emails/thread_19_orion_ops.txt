@@ -1,0 +1,17 @@
+From: scm@orionpharma.example.in
+To: ops@meridianfreight.example.in
+Date: Tue, 04 Aug 2026 17:19 +0530
+Subject: Temperature log format
+
+Please share temperature logs in the agreed format with each delivery.
+
+Dr. Sneha Kulkarni
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: scm@orionpharma.example.in
+Date: Tue, 04 Aug 2026 23:19 +0530
+Subject: RE: Temperature log format
+
+Format updated as requested from next dispatch.
+
+Sandeep Malhotra

@@ -1,0 +1,19 @@
+From: dispatch@shakticement.example.in
+To: dispatch@meridianfreight.example.in
+Date: Thu, 06 Aug 2026 17:37 +0530
+Subject: POD pending for last week
+
+Team,
+
+Please confirm on the above at the earliest.
+
+Prakash Nair
+------------------------------------------------------------
+From: dispatch@meridianfreight.example.in
+To: dispatch@shakticement.example.in
+Date: Thu, 06 Aug 2026 22:37 +0530
+Subject: RE: POD pending for last week
+
+Confirmed from our side, Prakash ji. Will revert with details by EOD.
+
+Rajender Pal Yadav

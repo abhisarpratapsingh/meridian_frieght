@@ -1,0 +1,19 @@
+From: hub.jaipur@meridianfreight.example.in
+To: ops@meridianfreight.example.in
+Date: Thu, 02 Jul 2026 13:46 +0530
+Subject: Vehicle allocation for Orion, RJ43DD3546
+
+Sandeep sir,
+
+Suggest we place RJ43DD3546 for the Orion run, it is the brand new 2021 model we got, should clear their gate check easily.
+
+Jaipur Hub
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: hub.jaipur@meridianfreight.example.in
+Date: Thu, 02 Jul 2026 14:46 +0530
+Subject: RE: Vehicle allocation for Orion
+
+Check the RC before writing such things. Verify year against the fleet master and revert.
+
+Sandeep Malhotra

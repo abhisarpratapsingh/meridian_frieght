@@ -1,0 +1,19 @@
+From: hub.jaipur@meridianfreight.example.in
+To: dispatch@meridianfreight.example.in
+Date: Sat, 08 Aug 2026 11:49 +0530
+Subject: Festival advance planning
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: dispatch@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Sat, 08 Aug 2026 17:49 +0530
+Subject: RE: Festival advance planning
+
+Proceed as per last quarter's process.
+
+Rajender Pal Yadav

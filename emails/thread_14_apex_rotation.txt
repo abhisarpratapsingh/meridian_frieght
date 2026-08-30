@@ -1,0 +1,20 @@
+From: stores@apexchem.example.in
+To: ops@meridianfreight.example.in
+Date: Tue, 11 Aug 2026 17:13 +0530
+Subject: Same vehicle PB59PM4997 again
+
+Sandeep,
+
+Our gate register shows PB59PM4997 is the same truck that broke down inside our premises last month, and you have sent it again on the very next dispatch. Our stores manager has flagged it. Please rotate vehicles after any incident, this was communicated earlier as well.
+
+R. Venkatesh
+Apex Chemicals
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: stores@apexchem.example.in
+Date: Tue, 11 Aug 2026 21:13 +0530
+Subject: RE: Same vehicle PB59PM4997 again
+
+Apologies R. ji, slip at our end. Standing instruction reiterated to dispatch: after any incident on an Apex run, a different vehicle goes on the immediately next Apex dispatch.
+
+Sandeep Malhotra

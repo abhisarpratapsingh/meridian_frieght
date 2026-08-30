@@ -1,0 +1,19 @@
+From: hub.kanpur@meridianfreight.example.in
+To: ops@meridianfreight.example.in
+Date: Mon, 25 May 2026 10:39 +0530
+Subject: Parking dispute at Ambala yard
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Mon, 25 May 2026 16:39 +0530
+Subject: RE: Parking dispute at Ambala yard
+
+Proceed as per last quarter's process.
+
+Sandeep Malhotra

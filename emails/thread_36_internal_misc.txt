@@ -1,0 +1,19 @@
+From: hub.ludhiana@meridianfreight.example.in
+To: dispatch@meridianfreight.example.in
+Date: Tue, 05 May 2026 16:17 +0530
+Subject: Weighbridge calibration
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: dispatch@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Tue, 05 May 2026 22:17 +0530
+Subject: RE: Weighbridge calibration
+
+Proceed as per last quarter's process.
+
+Rajender Pal Yadav

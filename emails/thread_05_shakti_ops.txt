@@ -1,0 +1,19 @@
+From: dispatch@shakticement.example.in
+To: ops@meridianfreight.example.in
+Date: Sat, 02 May 2026 14:04 +0530
+Subject: Diwali season volumes
+
+Team,
+
+Please confirm on the above at the earliest.
+
+Prakash Nair
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: dispatch@shakticement.example.in
+Date: Sat, 02 May 2026 19:04 +0530
+Subject: RE: Diwali season volumes
+
+Confirmed from our side, Prakash ji. Will revert with details by EOD.
+
+Sandeep Malhotra

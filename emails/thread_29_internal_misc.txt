@@ -1,0 +1,19 @@
+From: hub.delhi@meridianfreight.example.in
+To: ops@meridianfreight.example.in
+Date: Fri, 31 Jul 2026 12:30 +0530
+Subject: Insurance renewal batch 3
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Fri, 31 Jul 2026 18:30 +0530
+Subject: RE: Insurance renewal batch 3
+
+Proceed as per last quarter's process.
+
+Sandeep Malhotra

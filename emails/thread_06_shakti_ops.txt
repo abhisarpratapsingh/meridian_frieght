@@ -1,0 +1,19 @@
+From: dispatch@shakticement.example.in
+To: ops@meridianfreight.example.in
+Date: Tue, 05 May 2026 08:52 +0530
+Subject: Weighment slip mismatch trip 334083
+
+Team,
+
+Please confirm on the above at the earliest.
+
+Prakash Nair
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: dispatch@shakticement.example.in
+Date: Tue, 05 May 2026 13:52 +0530
+Subject: RE: Weighment slip mismatch trip 
+
+Confirmed from our side, Prakash ji. Will revert with details by EOD.
+
+Sandeep Malhotra

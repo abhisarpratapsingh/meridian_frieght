@@ -1,0 +1,20 @@
+From: logistics@vertexretail.example.in
+To: ops@meridianfreight.example.in
+Date: Wed, 24 Jun 2026 10:34 +0530
+Subject: Vehicle UP29HF3900 turned back at gate
+
+Sandeep,
+
+Your vehicle UP29HF3900 reached our Ludhiana WH at 6:40 pm yesterday. Gate closes 6 pm sharp, no exceptions, so it was not unloaded. Kindly do not report this as attempted delivery.
+
+Meenal Kapoor
+Vertex Retail
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: logistics@vertexretail.example.in
+Date: Thu, 25 Jun 2026 00:34 +0530
+Subject: RE: Vehicle UP29HF3900 turned back at gate
+
+Meenal ji, vehicle was held at the last halt overnight and delivered at 8:05 am today. As per our standing arrangement this is recorded as a scheduled morning delivery, not a failed attempt. Your coordinator was informed yesterday evening.
+
+Sandeep Malhotra

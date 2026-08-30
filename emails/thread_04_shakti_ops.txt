@@ -1,0 +1,19 @@
+From: dispatch@shakticement.example.in
+To: ops@meridianfreight.example.in
+Date: Fri, 07 Aug 2026 16:13 +0530
+Subject: Loading slot change at plant
+
+Team,
+
+Please confirm on the above at the earliest.
+
+Prakash Nair
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: dispatch@shakticement.example.in
+Date: Fri, 07 Aug 2026 21:13 +0530
+Subject: RE: Loading slot change at plant
+
+Confirmed from our side, Prakash ji. Will revert with details by EOD.
+
+Sandeep Malhotra

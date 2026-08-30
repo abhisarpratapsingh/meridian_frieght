@@ -1,0 +1,19 @@
+From: hub.delhi@meridianfreight.example.in
+To: dispatch@meridianfreight.example.in
+Date: Sun, 21 Jun 2026 14:25 +0530
+Subject: Fuel card limits revision
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: dispatch@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Sun, 21 Jun 2026 20:25 +0530
+Subject: RE: Fuel card limits revision
+
+Proceed as per last quarter's process.
+
+Rajender Pal Yadav

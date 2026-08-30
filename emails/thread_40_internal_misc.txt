@@ -1,0 +1,19 @@
+From: hub.ambala@meridianfreight.example.in
+To: dispatch@meridianfreight.example.in
+Date: Sat, 22 Aug 2026 10:26 +0530
+Subject: Tyre vendor quotation
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: dispatch@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Sat, 22 Aug 2026 16:26 +0530
+Subject: RE: Tyre vendor quotation
+
+Proceed as per last quarter's process.
+
+Rajender Pal Yadav

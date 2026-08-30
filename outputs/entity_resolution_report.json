@@ -1,0 +1,33 @@
+{
+  "entity_counts": {
+    "vehicles": 100,
+    "drivers": 60,
+    "clients": 5,
+    "tickets": 32,
+    "work_orders": 27,
+    "comms": 27,
+    "documents": 256
+  },
+  "vehicle_duplicate_source_rows_merged": 18,
+  "vehicle_ids_synthesized_due_to_missing_source_id": 0,
+  "fact_conflicts_resolved_by_precedence": 115,
+  "rules_encoded": 15,
+  "pii_redacted_at_ingestion": [
+    {
+      "source": "maintenance_log.xlsx",
+      "counts": {
+        "phone": 3,
+        "dl_number": 1
+      },
+      "total": 4
+    },
+    {
+      "source": "dispatcher_interview.txt + emails/*.txt",
+      "counts": {
+        "phone": 2
+      },
+      "total": 2
+    }
+  ],
+  "pii_redacted_at_ingestion_total": 6
+}

@@ -1,0 +1,20 @@
+From: scm@orionpharma.example.in
+To: ops@meridianfreight.example.in
+Date: Mon, 29 Jun 2026 12:15 +0530
+Subject: Load rejected at gate, vehicle HR15HP2193
+
+Team,
+
+The vehicle placed today is a 2019 model as per RC. Our audit SOP requires 2020 or later for all Orion consignments. Load was rejected at the gate. Please place a compliant vehicle tomorrow morning.
+
+Dr. Sneha Kulkarni
+Orion Pharma
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: scm@orionpharma.example.in
+Date: Mon, 29 Jun 2026 14:15 +0530
+Subject: RE: Load rejected at gate
+
+Dr. Kulkarni, regretted. A 2021 vehicle is being placed for tomorrow 9 am. Flag added in our system: Orion loads, 2020 or later only.
+
+Sandeep Malhotra

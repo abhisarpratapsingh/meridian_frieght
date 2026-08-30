@@ -1,0 +1,20 @@
+From: stores@apexchem.example.in
+To: ops@meridianfreight.example.in
+Date: Tue, 09 Jun 2026 19:04 +0530
+Subject: Same vehicle UP37UP7482 again
+
+Sandeep,
+
+Our gate register shows UP37UP7482 is the same truck that broke down inside our premises last month, and you have sent it again on the very next dispatch. Our stores manager has flagged it. Please rotate vehicles after any incident, this was communicated earlier as well.
+
+R. Venkatesh
+Apex Chemicals
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: stores@apexchem.example.in
+Date: Tue, 09 Jun 2026 23:04 +0530
+Subject: RE: Same vehicle UP37UP7482 again
+
+Apologies R. ji, slip at our end. Standing instruction reiterated to dispatch: after any incident on an Apex run, a different vehicle goes on the immediately next Apex dispatch.
+
+Sandeep Malhotra

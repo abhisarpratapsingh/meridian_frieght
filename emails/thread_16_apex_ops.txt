@@ -1,0 +1,17 @@
+From: stores@apexchem.example.in
+To: ops@meridianfreight.example.in
+Date: Thu, 09 Jul 2026 15:37 +0530
+Subject: MSDS copies with consignment
+
+Ensure MSDS copies travel with every chemical consignment without fail.
+
+R. Venkatesh
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: stores@apexchem.example.in
+Date: Thu, 09 Jul 2026 18:37 +0530
+Subject: RE: MSDS copies with consignment
+
+Noted and instructed to all hubs.
+
+Sandeep Malhotra

@@ -1,0 +1,19 @@
+From: hub.ludhiana@meridianfreight.example.in
+To: dispatch@meridianfreight.example.in
+Date: Fri, 05 Jun 2026 18:36 +0530
+Subject: GPS device replacement list
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: dispatch@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Sat, 06 Jun 2026 00:36 +0530
+Subject: RE: GPS device replacement list
+
+Proceed as per last quarter's process.
+
+Rajender Pal Yadav

@@ -1,0 +1,4 @@
+ticket_id,reason,source_file
+TKT-0007,no eligible replacement vehicle found,tickets.json
+TKT-0012,no eligible replacement vehicle found,tickets.json
+TKT-0018,no eligible replacement vehicle found,tickets.json

@@ -1,0 +1,18 @@
+# Vercel only needs to serve outputs/ as a static site (see vercel.json
+# outputDirectory). Everything else here is source/data for the Python
+# pipeline, which Vercel's static hosting never runs -- excluded to keep
+# the deployment small and avoid uploading large source data unnecessarily.
+/app/
+/tests/
+/emails/
+/state/
+/incoming/
+/meridian_trips.csv
+/drivers_roster.csv
+/fleet_master.csv
+/tickets.json
+/maintenance_log.xlsx
+/dispatcher_interview.txt
+/*.pptx
+/*.pdf
+/requirements.txt

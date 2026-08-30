@@ -1,0 +1,19 @@
+From: dispatch@shakticement.example.in
+To: ops@meridianfreight.example.in
+Date: Sun, 09 Aug 2026 09:52 +0530
+Subject: Rate revision Q3
+
+Team,
+
+Please confirm on the above at the earliest.
+
+Prakash Nair
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: dispatch@shakticement.example.in
+Date: Sun, 09 Aug 2026 14:52 +0530
+Subject: RE: Rate revision Q3
+
+Confirmed from our side, Prakash ji. Will revert with details by EOD.
+
+Sandeep Malhotra

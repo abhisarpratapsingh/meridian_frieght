@@ -1,0 +1,19 @@
+From: hub.jaipur@meridianfreight.example.in
+To: ops@meridianfreight.example.in
+Date: Mon, 18 May 2026 11:09 +0530
+Subject: Uniform distribution
+
+Sir,
+
+Please advise on the above.
+
+Hub team
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: hub@meridianfreight.example.in
+Date: Mon, 18 May 2026 17:09 +0530
+Subject: RE: Uniform distribution
+
+Proceed as per last quarter's process.
+
+Sandeep Malhotra

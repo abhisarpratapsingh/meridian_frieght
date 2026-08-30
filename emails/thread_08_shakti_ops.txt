@@ -1,0 +1,19 @@
+From: dispatch@shakticement.example.in
+To: ops@meridianfreight.example.in
+Date: Fri, 26 Jun 2026 08:35 +0530
+Subject: Additional tarpaulin requirement
+
+Team,
+
+Please confirm on the above at the earliest.
+
+Prakash Nair
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: dispatch@shakticement.example.in
+Date: Fri, 26 Jun 2026 13:35 +0530
+Subject: RE: Additional tarpaulin requirement
+
+Confirmed from our side, Prakash ji. Will revert with details by EOD.
+
+Sandeep Malhotra

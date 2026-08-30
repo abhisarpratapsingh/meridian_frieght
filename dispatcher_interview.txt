@@ -1,0 +1,60 @@
+MERIDIAN FREIGHT PRIVATE LIMITED
+Knowledge capture interview: Rajender Pal Yadav, Senior Dispatch Manager
+14 years at Meridian. Retiring end of next month.
+Recorded at Gurgaon hub. Transcribed verbatim, light edits for clarity.
+
+---
+
+INTERVIEWER: Rajender ji, thank you for doing this. The idea is simple. Whatever is in your head about how dispatch actually works, we want it written down before you leave. Not the SOP document. The real rules.
+
+RAJENDER: (laughs) The SOP document. I wrote half of it in 2015 and nobody has read it since, including me. Fine. Ask.
+
+INTERVIEWER: Start with routes. What do you know that the system doesn't?
+
+RAJENDER: The system thinks a truck is a truck. It is not. First thing, and this one is non-negotiable: October to February, no BS4 vehicle goes on any Delhi NCR route. Any route that touches Delhi, Gurgaon, Faridabad, Noida. Winter mein pollution restrictions lag jaati hain, GRAP whatever they call it now, and a BS4 truck can get stopped at the border, challan, sometimes turned back fully loaded. We learned this the expensive way in 2022. Two trucks held at Kundli for a day and a half. Shakti Cement ka load tha. Never again. BS6 only on Delhi routes in winter, I don't care if the BS4 truck is parked twenty meters from the loading dock and the BS6 is in Jaipur.
+
+INTERVIEWER: And the hill routes?
+
+RAJENDER: Rudrapur, and anything going up toward Nainital side from there. November to February, two rules. The vehicle must have an engine heater, because a cold start at four in the morning in December at that altitude, without a heater, you are gambling. And second, I never send a vehicle on a hill route if it has had any brake work in the last thirty days. Any brake work. Pad, drum, anything. If the brake job was done wrong you find out on a flat road with a hard stop and an embarrassed phone call. On a ghat road you find out in the newspaper. Thirty days of flat running first, then hills.
+
+INTERVIEWER: Tell me about the clients. Who is difficult?
+
+RAJENDER: Difficult is the wrong word. They all have a real rulebook and a paper rulebook. Shakti Cement's contract says 48 hour delivery window. Forget the contract. If a Shakti load crosses 36 hours, their plant head calls our MD directly, on his personal number, and then the MD calls me, and my evening is finished. So in my head Shakti is a 36 hour client. Plan everything to 36. The extra 12 hours in the contract is for God, not for us.
+
+Vertex Retail, opposite problem. Their contract says nothing about delivery time of day. But their warehouse at Ludhiana stops accepting after 6 pm. Not 6:15. The gate man will not open. So if a Vertex truck is going to reach after 6, don't let it reach after 6. Hold it at the last halt, deliver next morning at 8 when the gate opens, and inform their coordinator the previous evening. And listen, this is important: it is never marked as a failed delivery. It is a scheduled morning delivery. Mark it failed and Vertex's system generates a penalty note automatically and then two finance teams fight for a month over 4,000 rupees.
+
+Apex Chemicals. (pauses) They track our number plates. I am not joking. If a truck has any issue on an Apex run, a breakdown, a late arrival, anything, that same truck does not go back to Apex on the very next dispatch. Send a different vehicle at least once in between. Their gate register has plate numbers going back years and if the same "problem truck" shows up next time, their stores manager makes it a whole thing. It costs us nothing to rotate. So rotate.
+
+Orion Pharma, only one rule but it is absolute: their loads never wait at a hub overnight unrefrigerated, and their consignments always get the newest available vehicle, 2020 or later. Pharma audit requirement, they check the RC copy. Send a 2016 truck and the load is rejected at the gate, full trip wasted.
+
+INTERVIEWER: What about the monsoon?
+
+RAJENDER: July to September, anything going east of Lucknow, add twenty percent to whatever time the computer says, minimum. The OSRM number, the Google number, whatever. Waterlogging, diversions, one washed out approach road and your beautiful ETA is fiction. In monsoon on eastern routes I never promise the standard SLA to any client. I quote the padded number upfront. A client who hears 52 hours and gets it in 50 is happy. A client who hears 44 and gets 50 is writing emails.
+
+INTERVIEWER: Breakdowns. Walk me through what you actually do.
+
+RAJENDER: First question is always: where. Not what broke. Where. If a vehicle breaks down within 50 kilometers of its origin hub, the replacement comes from the origin hub. Always. People think nearest hub, and the software will also say nearest hub. Wrong. The nearest-hub trucks, especially at the smaller hubs, I keep those free for premium client dispatches, Orion and Shakti mainly. You empty out a small hub for a breakdown 40 km away and then a Shakti order lands there in the evening and you have nothing, and now you have two fires instead of one. Within 50 km, origin hub sends. Beyond 50 km, then yes, nearest hub with an eligible vehicle.
+
+And eligible means eligible. Available, correct BS stage for the route and season like I said, no brake work in 30 days if it is going to hills, and not overdue on service. That is the other absolute rule: any vehicle that is more than 30 days past its due service date is grounded. It does not move, I don't care what the emergency is. An overdue truck sent on an emergency becomes the next emergency.
+
+INTERVIEWER: The mechanics tell me about "Guddu ka jugaad."
+
+RAJENDER: (laughs) Guddu is the best temporary-fix man in Haryana. He can make a dead truck move with wire and prayer. That is a gift on the roadside at midnight. But every jugaad of his is a seven day clock. Whatever he patched must get a permanent repair within seven days, and until then that vehicle does not leave its home region. His fixes hold, but they hold like a promise, not like a part. Twice we forgot, sent the truck long-distance on a patch, and both times it died somewhere inconvenient. Seven days. Write it in red.
+
+INTERVIEWER: Anything about drivers?
+
+RAJENDER: New drivers, less than six months with us, never go solo on a night run. Pair them or give them day dispatches. This is not about skill, some of the new boys drive better than the old ones. It is that they don't know our roads, our dhabas, which stretch has the police check, whom to call when something feels wrong at 2 am. Six months of days and paired nights, then they earn the night solo. Ekdum pakka rule. Last month only I had to stop a booking, new boy, joined in March, someone had put him alone on a Kanpur night run. Nahi chalega. I called Sandeep and told him, put Ravi with him or move it to morning. Ravi's number is +91 93118 40522 if you ever need the pairing sorted directly, he coordinates the night roster.
+
+INTERVIEWER: You just gave me a phone number on a recorded interview, Rajender ji.
+
+RAJENDER: (laughs) So cut it out of the transcript. You see, this is why the rules live in my head. The head knows what not to say. The paper doesn't.
+
+INTERVIEWER: Last question. If the new system remembers only three things?
+
+RAJENDER: Only three. Then: Shakti is 36 hours no matter what the paper says. Grounded means grounded, overdue service does not move. And within 50 of origin, origin sends. Everything else you can learn by making the mistake once. Those three, the mistake is too expensive to be the teacher.
+
+INTERVIEWER: Thank you, Rajender ji.
+
+RAJENDER: Send the machine to me for one week before I go. Let us see if it can learn 14 years in 7 days. (laughs)
+
+--- END OF TRANSCRIPT ---

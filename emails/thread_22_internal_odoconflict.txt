@@ -1,0 +1,17 @@
+From: hub.lucknow@meridianfreight.example.in
+To: ops@meridianfreight.example.in
+Date: Fri, 17 Jul 2026 12:38 +0530
+Subject: Service planning CH67HY8613
+
+Odometer noted at 92,000 km during yard check for CH67HY8613. Service can wait till next quarter.
+
+Lucknow Hub
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: hub.lucknow@meridianfreight.example.in
+Date: Fri, 17 Jul 2026 14:38 +0530
+Subject: RE: Service planning CH67HY8613
+
+Workshop entry shows a different reading. Reconcile with the maintenance log, the workshop odometer photo is the reference, not the yard check.
+
+Sandeep

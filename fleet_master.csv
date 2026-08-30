@@ -1,0 +1,119 @@
+vehicle_id,registration_number,model,year,bs_stage,engine_heater,home_hub,capacity_tonnes,status
+MF-068,UP17GN7381,Tata LPT 3118,2023,BS6,No,Kanpur,31,Active
+MF-041,RJ43DD3546,BharatBenz 2823R,2017,BS4,No,Jaipur,31,Active
+MF-051,UP13DI3925,BharatBenz 2823R,2020,BS6,Yes,Lucknow,31,Active
+MF-031,PB31NP8886,Eicher Pro 6028,2016,BS4,No,Ludhiana,16,Active
+MF-100,DL30AN8381,Eicher Pro 6028,2022,BS6,Yes,Delhi,21,Active
+MF-095,CH71DC7565,Tata LPT 3118,2019,BS4,No,Chandigarh,16,Active
+MF-014,HR73CY1771,Tata LPT 3118,2024,BS6,Yes,Ambala,21,Active
+MF-029,DL41GG9786,Ashok Leyland 3520,2019,BS4,Yes,Delhi,25,Active
+MF-059,UP21YH6085,Ashok Leyland 3520,2016,BS4,No,Lucknow,21,Active
+MF-020,CH40BH2290,Eicher Pro 6028,2014,BS4,No,Chandigarh,16,Active
+MF-028,UK16VU2612,Eicher Pro 6028,2012,BS4,No,Rudrapur,25,Active
+,HR-41-FO-7216,Ashok Leyland 3520,2017,BS4,No,Ambala,,Active
+MF-058,HR70ZZ3780,Tata LPT 3118,2021,BS6,Yes,Ambala,31,Active
+MF-054,UP18VK6143,Tata LPT 3118,2021,BS6,No,Kanpur,25,Active
+MF-088,DL47HM4986,BharatBenz 2823R,2017,BS4,No,Delhi,28,Active
+MF-081,HR53AN9031,Eicher Pro 6028,2014,BS4,No,Ambala,25,Active
+MF-047,UP29HF3900,Tata LPT 3118,2019,BS4,Yes,Kanpur,25,Active
+,hr-16-sp-9238,Ashok Leyland 3520,2024,BS6,Yes,Gurgaon,31,Active
+,HR 13 HG 1333,Ashok Leyland 3520,2020,BS6,,Gurgaon,28,Active
+MF-050,UP52IC5573,Eicher Pro 6028,2018,BS4,No,Kanpur,31,Active
+,ch42hd4155,Tata LPT 3118,2019,BS4,No,Chandigarh,31,Active
+MF-038,HR68TS2638,Ashok Leyland 3520,2014,BS4,No,Gurgaon,31,Active
+,UP 86 CM 7252,Eicher Pro 6028,2020,BS6,Yes,Kanpur,31,Active
+MF-005,PB53DC7224,BharatBenz 2823R,2014,BS4,No,Ludhiana,25,Active
+MF-018,CH74TG3504,Ashok Leyland 3520,2018,BS4,No,Chandigarh,31,Active
+MF-009,RJ57LG5374,Tata LPT 3118,2022,BS6,No,Jaipur,21,Active
+MF-087,UK81YH8800,Eicher Pro 6028,2021,BS6,Yes,Rudrapur,16,Active
+MF-002,HR21SN1520,Tata LPT 3118,2012,BS4,No,Ambala,21,Active
+MF-025,PB18BK2160,Ashok Leyland 3520,2020,BS6,Yes,Ludhiana,28,Active
+MF-015,UP86CM7252,Eicher Pro 6028,2020,BS6,Yes,Kanpur,31,Active
+MF-044,RJ66RW8007,Tata LPT 3118,2020,BS6,Yes,Jaipur,21,Active
+,up33pg6813,BharatBenz 2823R,2023,BS6,Yes,Lucknow,31,Active
+MF-071,HR59KV7624,Ashok Leyland 3520,2022,BS6,No,Gurgaon,21,Active
+MF-034,HR16SP9238,Ashok Leyland 3520,2024,BS6,Yes,Gurgaon,31,Active
+MF-013,PB81RI8019,Eicher Pro 6028,2020,BS6,Yes,Ludhiana,21,Active
+MF-085,UP33PG6813,BharatBenz 2823R,2023,BS6,Yes,Lucknow,31,Active
+,uk41co2604,Tata LPT 3118,2012,BS4,,Rudrapur,16,Active
+MF-048,UP41IF2771,Tata LPT 3118,2019,BS4,No,Kanpur,21,Active
+MF-079,PB19SW4978,BharatBenz 2823R,2014,BS4,No,Ludhiana,31,Active
+MF-001,DL13XI5012,Ashok Leyland 3520,2016,BS4,No,Delhi,16,Active
+MF-086,CH81AQ4130,Ashok Leyland 3520,2014,BS4,No,Chandigarh,28,Active
+MF-098,CH85NJ1986,Tata LPT 3118,2020,BS6,No,Chandigarh,21,Active
+,HR-49-VN-6344,BharatBenz 2823R,2019,BS4,,Ambala,,Active
+MF-046,HR55GV5088,Tata LPT 3118,2021,BS6,Yes,Gurgaon,31,Active
+MF-017,RJ68AX5315,Ashok Leyland 3520,2020,BS6,Yes,Jaipur,16,Active
+MF-069,UP71AL5892,Eicher Pro 6028,2023,BS6,No,Kanpur,28,Active
+MF-091,RJ34GX8933,BharatBenz 2823R,2017,BS4,No,Jaipur,16,Active
+MF-083,UK69NX5397,Ashok Leyland 3520,2018,BS4,No,Rudrapur,16,Active
+MF-080,DL82ZB6688,Eicher Pro 6028,2020,BS6,No,Delhi,16,Active
+MF-072,HR13MS1444,Eicher Pro 6028,2014,BS4,No,Ambala,21,Active
+MF-049,PB68LJ4728,Tata LPT 3118,2016,BS4,No,Ludhiana,21,Active
+MF-026,PB79EX8744,Eicher Pro 6028,2016,BS4,No,Ludhiana,28,Active
+MF-062,UP38FZ9486,Tata LPT 3118,2019,BS4,No,Kanpur,16,Active
+,hr79zt4613,Ashok Leyland 3520,2019,BS4,Yes,Ambala,28,Active
+MF-032,RJ58AM5345,Eicher Pro 6028,2023,BS6,Yes,Jaipur,31,Active
+MF-066,CH40IK6238,Tata LPT 3118,2020,BS6,Yes,Chandigarh,21,Active
+MF-027,PB22DV8062,Eicher Pro 6028,2018,BS4,No,Ludhiana,28,Active
+,pb-79-ex-8744,Eicher Pro 6028,2016,BS4,No,Ludhiana,28,Active
+MF-092,PB47HL3939,Tata LPT 3118,2017,BS4,No,Ludhiana,31,Active
+MF-055,HR49VN6344,BharatBenz 2823R,2019,BS4,No,Ambala,21,Active
+MF-007,HR47UT6925,Ashok Leyland 3520,2020,BS6,No,Ambala,16,Active
+MF-094,DL11SJ8690,Eicher Pro 6028,2019,BS4,Yes,Delhi,16,Active
+MF-021,HR26EV8787,Ashok Leyland 3520,2020,BS6,Yes,Ambala,31,Active
+MF-043,DL64IB1058,Ashok Leyland 3520,2018,BS4,No,Delhi,25,Active
+MF-053,PB42BW8144,Ashok Leyland 3520,2012,BS4,No,Ludhiana,25,Active
+MF-045,HR14LS3426,Ashok Leyland 3520,2019,BS4,Yes,Ambala,25,Active
+MF-075,UK12XR1853,Ashok Leyland 3520,2018,BS4,No,Rudrapur,16,Active
+MF-084,CH67HY8613,Eicher Pro 6028,2020,BS6,Yes,Chandigarh,28,Active
+MF-063,UK27ZO9702,BharatBenz 2823R,2020,BS6,No,Rudrapur,28,Active
+,UP-40-IM-3144,BharatBenz 2823R,2022,BS6,,Lucknow,,Active
+MF-024,HR85RH4608,Tata LPT 3118,2012,BS4,No,Gurgaon,16,Active
+MF-036,PB84TB2343,BharatBenz 2823R,2019,BS4,No,Ludhiana,21,Active
+MF-093,RJ45BB5786,Ashok Leyland 3520,2022,BS6,No,Jaipur,28,Active
+MF-067,UP29WG2052,Eicher Pro 6028,2019,BS4,Yes,Kanpur,28,Active
+MF-061,PB59PM4997,Tata LPT 3118,2015,BS4,No,Ludhiana,16,Active
+MF-023,UK76OD5061,Tata LPT 3118,2016,BS4,No,Rudrapur,25,Active
+MF-099,PB43VC3573,Ashok Leyland 3520,2016,BS4,No,Ludhiana,31,Active
+MF-082,UK29NF9548,BharatBenz 2823R,2021,BS6,No,Rudrapur,31,Active
+MF-097,HR63TT4697,Eicher Pro 6028,2023,BS6,Yes,Ambala,28,Active
+MF-003,PB74TA4257,Eicher Pro 6028,2022,BS6,Yes,Ludhiana,31,Active
+MF-076,HR13HG1333,Ashok Leyland 3520,2020,BS6,Yes,Gurgaon,28,Active
+MF-074,UP53YM5558,Eicher Pro 6028,2023,BS6,Yes,Lucknow,16,Active
+MF-030,UK41CO2604,Tata LPT 3118,2012,BS4,No,Rudrapur,16,Active
+MF-012,UP37UP7482,Eicher Pro 6028,2021,BS6,Yes,Lucknow,21,Active
+MF-004,CH10YZ3615,Eicher Pro 6028,2022,BS6,Yes,Chandigarh,21,Active
+MF-033,UK29GJ4566,Tata LPT 3118,2012,BS4,No,Rudrapur,25,Active
+MF-078,DL30JD1420,Eicher Pro 6028,2017,BS4,No,Delhi,28,Active
+MF-042,PB53GV5325,Eicher Pro 6028,2020,BS6,Yes,Ludhiana,16,Active
+MF-056,UP58VX3851,BharatBenz 2823R,2020,BS6,Yes,Kanpur,16,Active
+MF-006,CH15XO9785,Eicher Pro 6028,2014,BS4,No,Chandigarh,16,Active
+,HR-53-AN-9031,Eicher Pro 6028,2014,BS4,No,Ambala,,Active
+MF-011,HR39BZ6168,BharatBenz 2823R,2019,BS4,Yes,Gurgaon,31,Active
+,up-21-yh-6085,Ashok Leyland 3520,2016,BS4,,Lucknow,21,Active
+MF-064,HR64RO3607,Eicher Pro 6028,2022,BS6,Yes,Ambala,21,Active
+MF-070,HR79ZT4613,Ashok Leyland 3520,2019,BS4,Yes,Ambala,28,Active
+MF-065,CH76PU4919,Eicher Pro 6028,2017,BS4,No,Chandigarh,16,Active
+,CH 40 BH 2290,Eicher Pro 6028,2014,BS4,No,Chandigarh,16,Active
+MF-052,UP54XZ6139,Tata LPT 3118,2019,BS4,Yes,Kanpur,31,Active
+MF-090,CH42HD4155,Tata LPT 3118,2018,BS4,No,Chandigarh,31,Active
+MF-039,CH26LC5002,BharatBenz 2823R,2018,BS4,No,Chandigarh,21,Active
+MF-089,HR77LN6419,Eicher Pro 6028,2018,BS4,No,Ambala,25,Active
+MF-060,HR15HP2193,Eicher Pro 6028,2019,BS4,No,Gurgaon,31,Active
+MF-016,HR24VR5371,BharatBenz 2823R,2023,BS6,Yes,Gurgaon,28,Active
+MF-057,CH46GN6279,Eicher Pro 6028,2019,BS4,Yes,Chandigarh,21,Active
+MF-037,UP40IM3144,BharatBenz 2823R,2021,BS6,Yes,Lucknow,16,Active
+MF-073,UK33BI7211,Ashok Leyland 3520,2018,BS4,No,Rudrapur,28,Active
+,dl-41-gg-9786,Ashok Leyland 3520,2019,BS4,,Delhi,25,Active
+MF-096,RJ29ZS5978,Ashok Leyland 3520,2014,BS4,No,Jaipur,16,Active
+MF-077,DL82GO5198,BharatBenz 2823R,2023,BS6,Yes,Delhi,31,Active
+MF-040,UK79WJ9666,BharatBenz 2823R,2012,BS4,No,Rudrapur,16,Active
+,RJ 34 GX 8933,BharatBenz 2823R,2018,BS4,No,Jaipur,16,Active
+MF-022,UP37RY4295,BharatBenz 2823R,2022,BS6,Yes,Kanpur,25,Active
+MF-008,PB47CH2654,BharatBenz 2823R,2019,BS4,Yes,Ludhiana,25,Active
+MF-010,HR41FO7216,Ashok Leyland 3520,2017,BS4,No,Ambala,25,Active
+MF-019,HR10TK9005,Tata LPT 3118,2012,BS4,No,Ambala,25,Active
+,DL 47 HM 4986,BharatBenz 2823R,2017,BS4,No,Delhi,28,Active
+MF-035,DL33CT2113,Ashok Leyland 3520,2021,BS6,Yes,Delhi,31,Active
+,UK-69-NX-5397,Ashok Leyland 3520,2018,BS4,No,Rudrapur,,Active

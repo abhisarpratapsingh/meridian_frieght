@@ -1,0 +1,10 @@
+From: dispatch@meridianfreight.example.in
+To: all-hubs@meridianfreight.example.in
+Date: Wed, 17 Jun 2026 09:07 +0530
+Subject: Monsoon planning, eastern routes
+
+All hubs,
+
+July to September, for anything east of Lucknow, quote ETA with twenty percent padding over the computed number, and quote the padded number to the client upfront. No standard SLA promises on eastern routes in monsoon.
+
+Rajender

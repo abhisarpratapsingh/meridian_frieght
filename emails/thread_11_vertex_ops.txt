@@ -1,0 +1,17 @@
+From: logistics@vertexretail.example.in
+To: ops@meridianfreight.example.in
+Date: Fri, 24 Jul 2026 09:37 +0530
+Subject: Appointment slots for next week
+
+Please share vehicle placement plan for Mon to Wed. Gate timings remain 8 am to 6 pm.
+
+Meenal Kapoor
+------------------------------------------------------------
+From: ops@meridianfreight.example.in
+To: logistics@vertexretail.example.in
+Date: Fri, 24 Jul 2026 11:37 +0530
+Subject: RE: Appointment slots for next week
+
+Shared separately. All placements planned to reach before 4 pm.
+
+Sandeep Malhotra
