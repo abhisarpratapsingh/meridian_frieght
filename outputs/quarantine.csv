@@ -1,3 +1,3 @@
 ticket_id,reason,source_file,first_seen_at
-TKT-9101,"missing critical field: vehicle; missing critical field: km_from_origin_hub; adapter: missing/blank after mapping: ['vehicle', 'km_from_origin_hub']",tickets.json,2026-08-30T08:54:14.650276
-TKT-9102,"missing critical field: origin_hub; missing critical field: issue; unparseable created_at: 'not-a-date'; adapter: missing/blank after mapping: ['origin_hub', 'issue']",tickets.json,2026-08-30T08:54:14.633450
+TKT-9101,"missing critical field: vehicle; missing critical field: km_from_origin_hub; adapter: missing/blank after mapping: ['vehicle', 'km_from_origin_hub']",tickets.json,2026-08-30T09:07:33.499731
+TKT-9102,"missing critical field: origin_hub; missing critical field: issue; unparseable created_at: 'not-a-date'; adapter: missing/blank after mapping: ['origin_hub', 'issue']",tickets.json,2026-08-30T09:07:33.494809

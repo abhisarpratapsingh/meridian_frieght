@@ -1,0 +1,306 @@
+<title>Breakdown to Resolution</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#faf6f1; --surface:#ffffff; --surface-2:#f2ece4;
+  --text-primary:#221d17; --text-secondary:#5c5346; --text-muted:#8c8071;
+  --accent:#d9531f; --accent-soft:#f7e2d6; --accent-ink:#ffffff;
+  --good:#3f7d4a; --good-soft:#e2efe2;
+  --warn:#a5711a; --warn-soft:#f6e9d2;
+  --critical:#b23a2e; --critical-soft:#f8e0dc;
+  --border:#e6ddd0;
+  --shadow:0 1px 2px rgba(34,29,23,.04), 0 8px 24px -12px rgba(34,29,23,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17130f; --surface:#1e1812; --surface-2:#271f17;
+    --text-primary:#f5efe6; --text-secondary:#bcaf9e; --text-muted:#8a7d6c;
+    --accent:#ff8257; --accent-soft:#3a2317; --accent-ink:#1a0f08;
+    --good:#7ec687; --good-soft:#1e2a1f;
+    --warn:#e3b160; --warn-soft:#332711;
+    --critical:#ea7466; --critical-soft:#33201c;
+    --border:#332a20;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17130f; --surface:#1e1812; --surface-2:#271f17;
+  --text-primary:#f5efe6; --text-secondary:#bcaf9e; --text-muted:#8a7d6c;
+  --accent:#ff8257; --accent-soft:#3a2317; --accent-ink:#1a0f08;
+  --good:#7ec687; --good-soft:#1e2a1f;
+  --warn:#e3b160; --warn-soft:#332711;
+  --critical:#ea7466; --critical-soft:#33201c;
+  --border:#332a20;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text-primary);
+  font-family:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
+  line-height:1.65; -webkit-font-smoothing:antialiased; font-size:16px;
+}
+.wrap{max-width:960px; margin:0 auto; padding:0 24px 96px;}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+
+/* ---- hero ---- */
+.hero{padding:76px 0 52px; border-bottom:1px solid var(--border);}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); font-weight:500; margin:0 0 18px;
+}
+h1{
+  font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(34px,5vw,54px);
+  line-height:1.1; margin:0 0 22px; text-wrap:balance; letter-spacing:-.01em;
+}
+.hero-sub{
+  font-size:19px; color:var(--text-secondary); max-width:64ch; margin:0 0 30px;
+}
+.hero-facts{display:flex; flex-wrap:wrap; gap:10px;}
+.fact-chip{
+  background:var(--surface-2); border:1px solid var(--border); border-radius:99px;
+  padding:8px 16px; font-size:14px; color:var(--text-secondary);
+}
+.fact-chip b{color:var(--text-primary); font-weight:600;}
+
+/* ---- sections ---- */
+section{padding:60px 0; border-bottom:1px solid var(--border);}
+section:last-of-type{border-bottom:none;}
+.sec-label{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--text-muted); margin:0 0 10px;
+}
+h2{
+  font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:30px;
+  margin:0 0 16px; text-wrap:balance;
+}
+.lede{font-size:17px; color:var(--text-secondary); max-width:70ch; margin:0 0 36px;}
+
+/* ---- pipeline diagram ---- */
+.pipeline-wrap{
+  background:var(--surface); border:1px solid var(--border); border-radius:16px;
+  padding:32px 24px; overflow-x:auto; box-shadow:var(--shadow);
+}
+pre.mermaid{margin:0; min-width:1100px; display:flex; justify-content:center;}
+.pipeline-note{
+  display:flex; align-items:center; gap:8px; margin-top:20px; font-size:13.5px; color:var(--text-muted);
+}
+.pipeline-note span{
+  display:inline-block; width:11px; height:11px; border-radius:3px; background:var(--accent-soft);
+  border:1px solid var(--accent);
+}
+
+/* ---- step list (readable fallback / companion to diagram) ---- */
+.steps{display:flex; flex-direction:column; gap:0; margin-top:36px;}
+.step{
+  display:grid; grid-template-columns:52px 1fr; gap:20px; padding:20px 0;
+  border-top:1px solid var(--border);
+}
+.step:first-child{border-top:none;}
+.step-num{
+  font-family:'Fraunces',Georgia,serif; font-size:26px; font-weight:600; color:var(--accent);
+  line-height:1;
+}
+.step h4{margin:0 0 6px; font-size:16.5px; font-weight:600;}
+.step p{margin:0; font-size:14.5px; color:var(--text-secondary); max-width:60ch;}
+
+/* ---- card grid ---- */
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:18px;}
+.card{
+  background:var(--surface); border:1px solid var(--border); border-radius:14px;
+  padding:24px 26px; box-shadow:var(--shadow);
+}
+.card h3{
+  font-size:16.5px; font-weight:600; margin:0 0 10px; display:flex; align-items:center; gap:10px;
+}
+.card p{font-size:15px; color:var(--text-secondary); margin:0;}
+.badge{
+  display:inline-flex; width:26px; height:26px; border-radius:7px; align-items:center;
+  justify-content:center; font-size:14px; flex-shrink:0;
+}
+.badge.good{background:var(--good-soft); color:var(--good);}
+.badge.warn{background:var(--warn-soft); color:var(--warn);}
+.badge.crit{background:var(--critical-soft); color:var(--critical);}
+.badge.acc{background:var(--accent-soft); color:var(--accent);}
+
+/* ---- rule override callout ---- */
+.callout{
+  background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent);
+  border-radius:0 14px 14px 0; padding:26px 30px; box-shadow:var(--shadow);
+}
+.callout .tag{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--accent); font-weight:500;
+  letter-spacing:.06em; margin-bottom:10px; display:block;
+}
+.callout p{margin:0 0 12px; font-size:16px; color:var(--text-secondary);}
+.callout p:last-child{margin:0;}
+.callout strong{color:var(--text-primary);}
+
+/* ---- checklist ---- */
+.check-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px 36px;}
+.check-item{display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--border);}
+.check-icon{
+  width:24px; height:24px; border-radius:50%; background:var(--good-soft); color:var(--good);
+  flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; margin-top:2px;
+}
+.check-item div b{font-size:15.5px; display:block; margin-bottom:3px;}
+.check-item div span{font-size:14px; color:var(--text-muted);}
+
+/* ---- pii gate ---- */
+.gate{
+  background:linear-gradient(135deg,var(--critical-soft),var(--surface) 60%);
+  border:1px solid var(--border); border-radius:16px; padding:32px 34px;
+  display:flex; gap:22px; align-items:flex-start; box-shadow:var(--shadow);
+}
+.gate .icon{
+  width:46px; height:46px; border-radius:11px; background:var(--critical); color:var(--accent-ink);
+  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px; flex-shrink:0;
+}
+.gate h3{margin:0 0 8px; font-size:18px;}
+.gate p{margin:0; font-size:15px; color:var(--text-secondary); max-width:62ch;}
+
+footer{padding:44px 0 0; color:var(--text-muted); font-size:13.5px;}
+
+@media (max-width:640px){
+  .check-grid{grid-template-columns:1fr;}
+  .hero{padding:56px 0 40px;}
+  h1{font-size:32px;}
+}
+</style>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Meridian Freight, Breakdown-to-Resolution System</p>
+    <h1>When a truck breaks down, this decides what happens next in seconds, not forty minutes.</h1>
+    <p class="hero-sub">A dispatcher used to check five systems by hand to reroute a broken-down truck. This replaces that scramble with one automated pipeline: every ticket is validated, matched against the fleet, checked against fourteen dispatcher rules, and resolved, with a human approving only the step that actually leaves the building.</p>
+    <div class="hero-facts">
+      <div class="fact-chip"><b>100</b> vehicles resolved from 118 messy source rows</div>
+      <div class="fact-chip"><b>14</b> dispatcher rules encoded as citable data</div>
+      <div class="fact-chip"><b>0</b> raw personal data ever stored</div>
+      <div class="fact-chip"><b>1</b> command to run the whole system</div>
+    </div>
+  </div>
+
+  <section>
+    <p class="sec-label">How a ticket moves</p>
+    <h2>Seven steps, always in the same order</h2>
+    <p class="lede">Every breakdown ticket, whether it arrives in the main queue or drops in later as a surprise file, passes through the same seven checkpoints. Nothing skips a step, and nothing repeats one.</p>
+
+    <div class="pipeline-wrap">
+<pre class="mermaid">
+%%{init: {"theme":"base", "themeVariables": {"fontSize":"20px","primaryColor":"#f7e2d6","primaryBorderColor":"#d9531f","primaryTextColor":"#221d17","lineColor":"#8c8071","tertiaryColor":"#ffffff"}, "flowchart":{"nodeSpacing":55,"rankSpacing":75,"padding":18}} }%%
+flowchart LR
+  A["Step 1
+Validate"] --> B["Step 2
+Enrich"]
+  B --> C["Step 3
+Classify"]
+  C --> D{"Step 4
+Select vehicle"}
+  D -- eligible truck found --> E["Step 5
+Work order"]
+  D -- none eligible --> H["Blocked:
+a person decides"]
+  E --> F["Step 6
+Draft message"]
+  F --> G["Step 7
+Audit record"]
+  H -. override with reason .-> E
+</pre>
+    </div>
+    <div class="pipeline-note"><span></span> Every arrow is a state change that is written to the audit trail before the next step runs.</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><h4>Validate</h4><p>Is this ticket a duplicate of one already seen, is it complete enough to act on? A record with a missing vehicle, hub, or issue field is quarantined with a clear reason and an alert. It is never dropped silently and never allowed to crash the run.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><h4>Enrich</h4><p>The ticket is joined against the fleet, driver roster, client contract, and maintenance history, so every later decision has full context instead of just the four fields the ticket itself contains.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><h4>Classify</h4><p>Severity and the required action are decided by consulting the fourteen encoded dispatcher rules, not a guess. Every classification cites the specific rule that produced it.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div><h4>Select a replacement vehicle</h4><p>Every active truck is checked against the same rules: available, permitted for the season on this route, not overdue on maintenance, not already claimed by another ticket this run. If nothing clears every rule, the ticket stops here and waits for a person.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div><h4>Record one work order</h4><p>Written exactly once per ticket, no matter how many times that ticket ID appears in the queue.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div><h4>Draft the client notification</h4><p>The message is written and queued behind a human approval gate, with the full reasoning and rule citations shown to the approver before it goes anywhere.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div><h4>Write the audit record</h4><p>What was decided, using what data, under which rule, by whom or by what, recorded for every single step of every single ticket.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-label">Real-world messiness</p>
+    <h2>The four ways this actually gets tested</h2>
+    <p class="lede">A clean demo is not the bar. These are the specific failure modes the system is built to survive, each one verified by actually running it, not just reasoning about the code.</p>
+    <div class="grid">
+      <div class="card">
+        <h3><span class="badge acc">&#8635;</span>Duplicate tickets</h3>
+        <p>A sync fault means the same ticket ID can appear more than once. Each one is processed exactly once. Running the whole pipeline twice back to back produces identical output, nothing doubled.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge warn">&#9888;</span>Broken records</h3>
+        <p>Missing vehicle, missing hub, unreadable fields. The ticket is quarantined with a clear reason and an alert. It never crashes the run and never gets silently dropped.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge good">&#8623;</span>The surprise file</h3>
+        <p>A background watcher checks the inbox folder every eight seconds. A file in a completely different shape lands, has its fields matched automatically, and flows through the same seven steps. No restart, no manual step. Verified live.</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge crit">&#128274;</span>No eligible truck</h3>
+        <p>When nothing passes every rule, the system does not force a bad match. It stops, shows a dispatcher every candidate and why each one failed, and waits for a judgment call.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-label">Expert knowledge, encoded</p>
+    <h2>Fourteen rules from a 14-year dispatcher's interview</h2>
+    <p class="lede">The rules are not buried in code. They are a readable table, and each one is traceable to the exact line of the interview transcript it came from. One of them is the clearest proof the system respects real expertise over the obvious answer:</p>
+    <div class="callout">
+      <span class="tag">RULE R-09, SOURCING OVERRIDE</span>
+      <p>The obvious move when a truck breaks down is to send a replacement from the <strong>nearest</strong> hub. But if the breakdown happens within 50km of its own <strong>origin</strong> hub, the rule says send the replacement from there instead, even when a closer hub exists.</p>
+      <p>The system checks this every time, cites the rule by ID in the work order, and a dispatcher who overrides it manually has to type a reason that becomes a permanent, clearly labeled part of the record, never mistaken for a rule-compliant pick.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-label">The one non-negotiable</p>
+    <h2>Personal data never leaves the building raw</h2>
+    <div class="gate">
+      <div class="icon">&#10003;</div>
+      <div>
+        <h3>Phone numbers, ID numbers, license numbers: masked before they are ever stored</h3>
+        <p>Not removed before sending, removed before saving. Every driver record keeps only a one-way hash. Every free-text note is redacted at the moment it is ingested. A second, independent scanner then re-checks every single file the system ever produces (work orders, client messages, the dashboard, CSV exports) before a run counts as complete. Nothing raw can leak because nothing raw is ever kept.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-label">What "production-ready" means here</p>
+    <h2>Checked, not claimed</h2>
+    <div class="check-grid">
+      <div class="check-item"><div class="check-icon">&#10003;</div><div><b>Idempotent</b><span>Same ticket seen twice never produces two work orders or two client messages.</span></div></div>
+      <div class="check-item"><div class="check-icon">&#10003;</div><div><b>Rerun-identical</b><span>Running the full pipeline twice back to back gives identical output files.</span></div></div>
+      <div class="check-item"><div class="check-icon">&#10003;</div><div><b>Unattended</b><span>A background watcher processes new files with nobody at the keyboard, verified by dropping a file and watching it get handled.</span></div></div>
+      <div class="check-item"><div class="check-icon">&#10003;</div><div><b>One-command start</b><span>A clean machine, one documented command, no accounts or internet required to run.</span></div></div>
+      <div class="check-item"><div class="check-icon">&#10003;</div><div><b>Full audit trail</b><span>Every decision (what, why, under which rule, by whom) is reconstructable in under a minute.</span></div></div>
+      <div class="check-item"><div class="check-icon">&#10003;</div><div><b>Grounded answers only</b><span>The Q&amp;A interface cites its source for every answer and plainly says "insufficient data" rather than guess.</span></div></div>
+    </div>
+  </section>
+
+  <footer>Built for the Synq AI Forward Deployment Challenge. Entity resolution, rule-based decisioning, and a human approval gate on every irreversible action.</footer>
+</div>

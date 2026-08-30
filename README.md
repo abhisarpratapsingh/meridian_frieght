@@ -238,6 +238,12 @@ toggle:
    (`python -m app.cli all`), commit `docs/index.html`, push. Pages
    redeploys automatically.
 
+Once Pages is on, a plain-English visual walkthrough of the whole system is
+also live at `https://<user>.github.io/<repo>/overview.html` — a static,
+non-technical explainer of the 7-step pipeline, the rule-override example,
+and the PII gate (`docs/overview.html`), separate from the live dashboard
+snapshot above.
+
 **What Vercel can and can't do here, stated plainly:** this system's live
 features (approve, resolve, ingest, ask, the background file watcher) are a
 stateful Python process — a SQLite file that persists between requests and a
