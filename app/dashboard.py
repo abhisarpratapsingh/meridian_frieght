@@ -371,11 +371,12 @@ button.theme-toggle:hover { color: var(--text-primary); border-color: var(--base
 .badge .dot.live { animation: pulse-dot 1.8s ease-in-out infinite; }
 
 /* ---------- needs-attention ---------- */
-.attention-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+.attention-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; align-items: start; }
 .attention-panel {
   background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 18px;
   backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
   box-shadow: var(--glass-highlight), var(--shadow-md);
+  max-height: 480px; overflow-y: auto;
 }
 .attention-panel h3 { font-size: 13px; margin: 0 0 4px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 .attention-panel .n { font-size: 20px; font-weight: 800; }
