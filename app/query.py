@@ -80,9 +80,72 @@ def _rule_search(conn, text):
     return [h[1] for h in hits[:3]]
 
 
+def _ticket_lookup(conn, ticket_id):
+    t = conn.execute("SELECT * FROM tickets WHERE ticket_id=?", (ticket_id,)).fetchone()
+    if not t:
+        return None
+    t = dict(t)
+    parts = [f"{ticket_id}: state {t['state']}"]
+    if t["driver_id"]:
+        d = conn.execute("SELECT name FROM drivers WHERE driver_id=?", (t["driver_id"],)).fetchone()
+        if d and d["name"]:
+            parts.append(f"driver {d['name']}")
+    if t["reg_canonical"]:
+        parts.append(f"vehicle {t['reg_canonical']}")
+    if t["issue"]:
+        parts.append(f"issue: {t['issue']}")
+    if t["quarantine_reason"]:
+        parts.append(f"quarantine reason: {t['quarantine_reason']}")
+    cls = conn.execute("SELECT * FROM classifications WHERE ticket_id=?", (ticket_id,)).fetchone()
+    if cls:
+        parts.append(f"severity {cls['severity']}, action {cls['required_action']}")
+    wo = conn.execute("SELECT vehicle_reg FROM work_orders WHERE ticket_id=?", (ticket_id,)).fetchone()
+    if wo:
+        parts.append(f"replacement assigned: {wo['vehicle_reg']}")
+    return ", ".join(parts) + "."
+
+
+def _fleet_count_question(conn, qlow):
+    if not any(w in qlow for w in ("how many", "count of", "number of")):
+        return None
+    if any(w in qlow for w in ("truck", "vehicle", "fleet")):
+        if "active" in qlow or "available" in qlow:
+            n = conn.execute("SELECT COUNT(*) c FROM vehicles WHERE status='ACTIVE'").fetchone()["c"]
+            return f"{n} vehicles are currently ACTIVE in the fleet.", "vehicles table (status=ACTIVE)"
+        n = conn.execute("SELECT COUNT(*) c FROM vehicles").fetchone()["c"]
+        return f"The fleet has {n} unique vehicles (after entity resolution of fleet_master.csv duplicates).", "vehicles table"
+    if "driver" in qlow:
+        n = conn.execute("SELECT COUNT(*) c FROM drivers").fetchone()["c"]
+        return f"{n} drivers are on record.", "drivers table"
+    if "ticket" in qlow:
+        n = conn.execute("SELECT COUNT(*) c FROM tickets").fetchone()["c"]
+        return f"{n} tickets have been ingested.", "tickets table"
+    return None
+
+
 def answer(conn, question: str) -> dict:
     q = question.strip()
     qlow = q.lower()
+
+    # 0a. Ticket-ID question (TKT-xxxx or similar token directly in the corpus's own id space)
+    tid_match = re.search(r"\bTKT-?\d{3,6}\b", q, re.IGNORECASE)
+    if tid_match:
+        raw = tid_match.group(0).upper().replace("TKT", "TKT-").replace("TKT--", "TKT-")
+        row = conn.execute(
+            "SELECT ticket_id FROM tickets WHERE UPPER(ticket_id)=? OR UPPER(ticket_id)=?",
+            (raw, tid_match.group(0).upper()),
+        ).fetchone()
+        if row:
+            text = _ticket_lookup(conn, row["ticket_id"])
+            if text:
+                return {"answer": text, "citations": [f"tickets table ({row['ticket_id']})"],
+                         "confidence": "high", "abstained": False}
+
+    # 0b. Fleet-wide aggregate/count question
+    fleet_hit = _fleet_count_question(conn, qlow)
+    if fleet_hit:
+        text, cite = fleet_hit
+        return {"answer": text, "citations": [cite], "confidence": "high", "abstained": False}
 
     # 1. Vehicle-specific question
     reg = _find_reg_in_text(conn, q)
@@ -110,6 +173,14 @@ def answer(conn, question: str) -> dict:
                     text = f"Effective SLA is {row['sla_hours_effective']}h (contract says {row['sla_hours_contract']}h). " + text
                 return {"answer": text, "citations": ["clients table (seeded from dispatcher_interview.txt + corroborating email thread)"],
                         "confidence": "high", "abstained": False}
+
+    # 2b. Direct rule-ID question (e.g. "what is R-09")
+    rid_match = re.search(r"\b([RP]-\d{2})\b", q, re.IGNORECASE)
+    if rid_match:
+        row = conn.execute("SELECT * FROM rules WHERE UPPER(rule_id)=?", (rid_match.group(1).upper(),)).fetchone()
+        if row:
+            text = f"[{row['rule_id']}] {row['statement']}"
+            return {"answer": text, "citations": [row["source_citation"]], "confidence": "high", "abstained": False}
 
     # 3. Rule / policy keyword question
     rule_hits = _rule_search(conn, q)
